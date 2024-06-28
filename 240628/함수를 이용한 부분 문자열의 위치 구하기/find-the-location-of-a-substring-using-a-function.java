@@ -11,6 +11,9 @@ public class Main {
         for(int i = 0; i < str.length() - s.length() + 1; i++){
             if(str.substring(i, i + s.length()).equals(s)){
                 res = i;
+                if(res != -1){
+                    break;
+                }
             }
         }
         System.out.print(res);
