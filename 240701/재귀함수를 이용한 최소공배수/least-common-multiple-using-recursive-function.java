@@ -12,17 +12,22 @@ public class Main {
             nums[i] = sc.nextInt();
         }
 
+        int sum = nums[0];
+        for (int i = 1; i < n; i++){
+            sum = lcd(sum, nums[i]);
+        }
         // Arrays.sort(nums);
-        System.out.print(lcd(n - 1));
+        System.out.print(sum);
     }
 
-    private static int lcd(int idx){
-        if(idx == 0){
-            return nums[idx];
-        }
-        int element = lcd(idx - 1);
-        // System.out.println("element = " + element);
-        return element % nums[idx] == 0 ? Math.max(element, nums[idx]) : nums[idx] * element;
+    private static int lcd(int n, int m){
+        return n * m / gcd(n, m);
+    }
 
+    private static int gcd(int n, int m){
+        if(m == 0){
+            return n;
+        }
+        return gcd(m, n % m);
     }
 }
