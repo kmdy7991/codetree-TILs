@@ -2,26 +2,26 @@ import java.util.*;
 
 class Student {
     String name;
-    String kor;
-    String eng;
-    String math;
+    int kor;
+    int eng;
+    int math;
 
-    Student(String name, String kor, String eng, String math){
+    Student(String name, int kor, int eng, int math){
         this.name = name;
         this.kor = kor;
         this.eng = eng;
         this.math = math;
     }
 
-    public String getKor(){
+    public int getKor(){
         return this.kor;
     }
 
-    public String getEng(){
+    public int getEng(){
         return this.eng;
     }
 
-    public String getMath(){
+    public int getMath(){
         return this.math;
     }
 
@@ -41,7 +41,7 @@ public class Main {
         Student[] students = new Student[n];
         for (int i = 0; i < n; i++){
             st = new StringTokenizer(sc.nextLine());
-            students[i] = new Student(st.nextToken(), st.nextToken(), st.nextToken(), st.nextToken());
+            students[i] = new Student(st.nextToken(), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken()));
         }
 
         Arrays.sort(students, Comparator.comparing(Student::getKor).thenComparing(Student::getEng).thenComparing(Student::getMath).reversed());
