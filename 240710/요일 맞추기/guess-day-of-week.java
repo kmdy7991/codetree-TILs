@@ -24,7 +24,7 @@ public class Main {
             end += days[i];
         }
 
-        int res = Math.abs(start - end);
-        System.out.print(weeks[(8 - (res % 7)) % 7]);
+        int res = end - start;
+        System.out.print(weeks[(1 + (res % 7)) % 7]);
     }
 }
